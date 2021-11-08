@@ -8,8 +8,6 @@ tags: [test]
 comments: true
 ---
 
-## Research Meta Analysis
-
 {: .box-note}
 [Asthma and COVID-19: a danger liason?](https://asthmarp.biomedcentral.com/articles/10.1186/s40733-021-00075-z)
 
