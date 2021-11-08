@@ -11,7 +11,7 @@ comments: true
 ## Research Meta Analysis
 
 {: .box-note}
-**Note:** Link: https://asthmarp.biomedcentral.com/articles/10.1186/s40733-021-00075-z
+Link to study: https://asthmarp.biomedcentral.com/articles/10.1186/s40733-021-00075-z
 
 1. What are the null and alternate hypotheses?
 2. Who is collecting and analyzing this data?
