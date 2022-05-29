@@ -1,5 +1,179 @@
----
-layout: home
-title: Avi's Art of Data Website
-subtitle: This is where I will tell my friends way too much about me
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: block;
+        font-family: "Barlow Semi Condensed", sans-serif;
+        font-size: 120%;
+      }
+      .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+      }
+
+      img {
+        text-align: center;
+      }
+
+      .image3 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+      }
+
+      #container {
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>
+        How postive are the characters in the Office? Using Sentiment Analysis
+        to analyze the story of a paper company.
+      </h1>
+
+      <p>
+        I've tried to introduce a lot of people to the office. From what I can
+        tell, others see the show as boring, mundane, and dull. I...just looked
+        up synonyms of boring so that this would take up more space. But I will
+        prove, that even though the show is not too positive nor negative, the
+        show is still funny. Not really, I'm just gonna prove the show is not
+        too positive or negative.
+      </p>
+
+      <p>
+        I was looking back on this, and didn't think I had enough
+        visualizations, even though I made a bunch of word clouds with altair,
+        so here's another one, just because.
+      </p>
+
+      <img
+        src="https://i.ibb.co/N1F0Bdq/Screen-Shot-2022-05-29-at-1-58-03-PM.png"
+        alt="Screen-Shot-2022-05-29-at-1-58-03-PM"
+        border="0"
+        width="40%"
+      />
+      <p>
+        We can learn quite a bit about the characters in the office just by
+        looking at the words they use most. We first have to clean the data we
+        have, removing special characters, symbols, numbers, and stop words.
+        Then we can filter the data for a certain characters, let's take Dwight
+        for example, and find the counts of the word he uses most. We can then
+        use altair to create a word cloud of those words. Here are the word
+        clouds for three different characters.
+      </p>
+      <p>
+        It's easy to see who's who. Jim's always talking about Dwight, Dwight's
+        talking about Michael, and Michael thinks he knows everything. A word
+        cloud of the most common words each character uses helps us understand
+        them and who they are.
+      </p>
+
+      <div class="wrapper">
+        <div>
+          <img
+            src="https://i.ibb.co/YtzqrT8/11.png"
+            alt="11"
+            border="0"
+            width="200px"
+          />
+        </div>
+        <div>
+          <img
+            src="https://i.ibb.co/jfDjf25/12.png"
+            alt="12"
+            border="0"
+            width="200px"
+          />
+        </div>
+        <div>
+          <img
+            src="https://i.ibb.co/Jk3LFns/13.png"
+            alt="13"
+            border="0"
+            width="200px"
+          />
+        </div>
+      </div>
+
+      <p>
+        The second part of this analysis is finding out how positive or negative
+        the office is, and because we learned ways to statistically analyze
+        data, I'll use the carefully written notes I took to do just that. We'll
+        start by gathering sample tweets, which have already been classified as
+        positive and negative, and use that to train our model. The Naives Bayes
+        classifier is a collection of algorithms for classifying data, and in
+        our case, we train these algorithms to understand whether certain
+        expressions are positive or negative.
+      </p>
+
+      <p>
+        Classifying data with NLP takes time, which means I can't determine
+        whether each line of the office is positive or negative. Believe me, I
+        tried.
+      </p>
+
+      <img
+        src="https://i.ibb.co/9g78KLs/15973-C85-915-C-4-C6-E-9521-12-DA2789-C2-A4.jpg"
+        class="image3"
+      />
+
+      <p>
+        Instead, I'm gonna have to use what Mr. Lee taught me. I decided to take
+        samples of 10, and find their positivity rate (positive lines divided by
+        total lines). I'm going to take 50 of those samples, and bootstrap those
+        50 postivity rates to get the best possible mean for the dataset as a
+        whole. There are around 58721 lines in the office, which means there are
+        1.34 * 10^41 different ways to get 10 lines. We only have 50.
+      </p>
+
+      <p>
+        After bootstrapping sub-samples of 10 from our sample of 50, with
+        replacement, I did this 20 times. To be completely honest with you, I
+        came to Boston for the long weekend, and on the car ride I just thought
+        of random numbers for this stuff. Here is a list of all the calculated
+        sample averages:
+      </p>
+      <img
+        src="https://i.ibb.co/rkNzFHB/Screen-Shot-2022-05-29-at-1-27-51-PM.png"
+        border="0"
+      />
+      <p>
+        Anyway, with our 20 different averges, I found the 35% and 65%
+        percentiles, which should give us a 30% confidence interval. Again,
+        random number. So with 30% confidence, we can say out number is in
+        between 0.4765 and 0.5235. So, to conclude, we aren't so confident that
+        about 50% of all the lines in the office are positive, and 50% are
+        negative.
+      </p>
+
+      <h3>
+        This all seems stupid, and it is, but it's fascinating to see how
+        successful of a show the office is, since it's just a bunch of people
+        working in a paper company. But maybe the office is watched by so many
+        because it doesn't try so hard to be something, it doesn't try to make
+        people happy or angry or sad or excited. The office is relatable, unless
+        you are a junior at HM, I would say real life is just neutral. If you
+        are junior at HM, it doesn't matter how much bootstrapping you do, your
+        still depressed. But the office isn't boring, it's real, it's authentic,
+        and the 50% positivity rating is why it's such a great show.
+      </h3>
+    </div>
+  </body>
+</html>
